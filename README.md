@@ -1,7 +1,10 @@
 # Thing I want to build
 
-## Start aws stack in local
+## Tinyurl
+
+Run:
 
 ```bash
-$ docker-compose -f config/docker-compose.yml up
+$ docker-compose -f config/docker-compose.tinyurl.yml up
+$ cd tinyurl && python main.py
 ```
