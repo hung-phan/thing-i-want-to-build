@@ -1,1 +1,1 @@
-from tinyurl.domain.models.URL import URL
+from domain.models.URL import URL

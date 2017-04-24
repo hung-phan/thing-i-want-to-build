@@ -1,3 +1,5 @@
 from cassandra.cluster import Cluster
 
-cluster = Cluster()
+
+class CassandraDatabase:
+    cluster = Cluster()
