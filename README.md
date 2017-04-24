@@ -1,10 +1,4 @@
 # Thing I want to build
 
-## Tinyurl
+- TinyURL
 
-Run:
-
-```bash
-$ docker-compose -f config/docker-compose.tinyurl.yml up
-$ cd tinyurl && python main.py
-```

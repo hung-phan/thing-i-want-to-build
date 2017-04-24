@@ -1,5 +1,6 @@
 import aiohttp_jinja2
 import jinja2
+import os
 from aiohttp.web import run_app
 from injector import inject
 
@@ -25,8 +26,9 @@ class App:
     def setup_routes(self):
         router = self.engine.app.router
 
-        router.add_static("/static/", path="public", name="static")
+        router.add_static("/static/", path=os.getcwd() + "/application/static", name="static")
         router.add_get("/", self.application_controller.index)
+        router.add_post("/shorten_url", self.application_controller.create_shorten_url)
 
     def setup_middlewares(self):
         self.engine.app.middlewares.append(error_middleware)

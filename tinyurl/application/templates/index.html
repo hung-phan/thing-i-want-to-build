@@ -7,10 +7,30 @@
 
     <title>Application</title>
 
-    <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="/static/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" media="all"/>
 </head>
 
 <body>
-Test
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Tiny URL</h3>
+        </div>
+        <div class="col-md-12">
+            <form id="tiny-url-form">
+                <div class="form-group">
+                    <label for="originalURL">Original URL</label>
+                    <input type="text" class="form-control" id="originalURL"/>
+                </div>
+                <button type="button" class="btn btn-default">Submit</button>
+            </form>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous"></script>
+    <script src="/static/js/main.js" type="application/javascript"></script>
+</div>
 </body>
 </html>
