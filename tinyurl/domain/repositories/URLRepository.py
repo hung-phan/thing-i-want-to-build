@@ -1,4 +1,3 @@
-import base62
 from injector import inject
 from typing import List, Any
 
