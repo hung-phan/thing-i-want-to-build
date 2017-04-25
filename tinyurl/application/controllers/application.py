@@ -37,12 +37,4 @@ class ApplicationController:
         params = request.match_info
         url = await self.url_repository.find_by("id", params["shorten_url"])
 
-        if url:
-            return Response(
-                status=302,
-                headers={
-                    "location": url.original_url
-                }
-            )
-        else:
-            return Response(status=404)
+        return Response(status=302, headers={"location": url.original_url}) if url else Response(status=404)
