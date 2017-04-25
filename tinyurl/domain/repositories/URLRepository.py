@@ -31,15 +31,15 @@ class URLRepository:
                 "SELECT id, original_url, expire_time FROM urls WHERE id = $1 LIMIT 1;",
                 base62.decode(uid)
             )
-            return URL(uid=row[0], original_url=row[1], expire_time=row[2])
+            return URL(uid=row[0], original_url=row[1], expire_time=row[2]) if row else None
 
-    async def find_by_original_id(self, original_url) -> URL:
+    async def find_by_original_url(self, original_url) -> URL:
         async with self.db.acquire_connection() as conn:
             row = await conn.fetchrow(
                 "SELECT id, original_url, expire_time FROM urls WHERE original_url = $1;",
                 original_url
             )
-            return URL(uid=row[0], original_url=row[1], expire_time=row[2])
+            return URL(uid=row[0], original_url=row[1], expire_time=row[2]) if row else None
 
     async def all(self) -> List[URL]:
         async with self.db.acquire_connection() as conn:

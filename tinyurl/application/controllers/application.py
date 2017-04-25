@@ -20,9 +20,12 @@ class ApplicationController:
 
     async def create_shorten_url(self, request: Request):
         params = await request.post()
-        url = await self.url_repository.create(
-            URL(original_url=params["original_url"])
-        )
+        url = await self.url_repository.find_by_original_url(params["original_url"])
+
+        if not url:
+            url = await self.url_repository.create(
+                URL(original_url=params["original_url"])
+            )
 
         return json_response({
             "id": url.id,
