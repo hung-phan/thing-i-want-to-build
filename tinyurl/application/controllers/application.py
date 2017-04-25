@@ -20,7 +20,7 @@ class ApplicationController:
 
     async def create_shorten_url(self, request: Request):
         params = await request.post()
-        url = await self.url_repository.find_by_original_url(params["original_url"])
+        url = await self.url_repository.find_by("original_url", params["original_url"])
 
         if not url:
             url = await self.url_repository.create(
@@ -35,7 +35,7 @@ class ApplicationController:
 
     async def redirect(self, request: Request):
         params = request.match_info
-        url = await self.url_repository.find_by_id(params["shorten_url"])
+        url = await self.url_repository.find_by("id", params["shorten_url"])
 
         if url:
             return Response(
