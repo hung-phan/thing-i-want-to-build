@@ -1,6 +1,6 @@
 import aiohttp_jinja2 as aiohttp_jinja2
 from aiohttp.web_request import Request
-from aiohttp.web_response import Response
+from aiohttp.web_response import Response, json_response
 from injector import inject
 
 from domain.models import URL
@@ -15,16 +15,24 @@ class ApplicationController:
         self.url_repository = url_repository
 
     @aiohttp_jinja2.template("index.html")
-    def index(self, _):
+    async def index(self, _):
         return {}
 
     async def create_shorten_url(self, request: Request):
         params = await request.post()
-        return self.url_repository.create(URL(original_url=params["original_url"]))
+        url = await self.url_repository.create(
+            URL(original_url=params["original_url"])
+        )
+
+        return json_response({
+            "id": url.id,
+            "original_url": url.original_url,
+            "expire_time": str(url.expire_time)
+        })
 
     async def redirect(self, request: Request):
-        params = await request.get()
-        url = self.url_repository.find_by("id", params["id"])
+        params = request.match_info
+        url = await self.url_repository.find_by_id(params["shorten_url"])
 
         if url:
             return Response(

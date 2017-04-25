@@ -1,14 +1,22 @@
-from contextlib import contextmanager
+import asyncio
 
-import asyncpg
+from asyncpg import create_pool
+from asyncpg.pool import Pool
 
 
 class PostgresDatabase:
-    @contextmanager
-    async def get_connection(self):
-        connection = await asyncpg.connect(user="tinyurl",
-                                           password="tinyurl",
-                                           database="tinyurl",
-                                           host="127.0.0.1")
-        yield connection
-        await connection.close()
+    pool: Pool
+
+    def __init__(self):
+        self.pool = asyncio.get_event_loop().run_until_complete(self.get_pool())
+
+    async def get_pool(self):
+        return await create_pool(
+            user="tinyurl",
+            password="tinyurl",
+            database="tinyurl",
+            host="127.0.0.1"
+        )
+
+    def acquire_connection(self):
+        return self.pool.acquire()

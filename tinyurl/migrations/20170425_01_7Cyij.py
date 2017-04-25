@@ -11,6 +11,7 @@ steps = [
           expire_time  TIMESTAMP
         );
         CREATE INDEX url_id_index ON urls (id);
+        CREATE INDEX url_original_url_index ON urls (original_url);
         """,
         "DROP TABLE urls;"
     )

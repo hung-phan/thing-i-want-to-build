@@ -29,6 +29,7 @@ class App:
         router.add_static("/static/", path=os.getcwd() + "/application/static", name="static")
         router.add_get("/", self.application_controller.index)
         router.add_post("/shorten_url", self.application_controller.create_shorten_url)
+        router.add_get("/urls/{shorten_url}", self.application_controller.redirect)
 
     def setup_middlewares(self):
         self.engine.app.middlewares.append(error_middleware)
