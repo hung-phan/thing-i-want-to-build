@@ -21,7 +21,7 @@ class URLRepository:
                 "INSERT INTO urls (original_url, expire_time) VALUES ($1, $2) RETURNING id;",
                 url.original_url, url.expire_time
             )
-            url.set_id(url_id)
+            url.id = URL.encode_uid(url_id)
             return url
 
     async def find_by(self, field_name: str, value: Any) -> URL:
