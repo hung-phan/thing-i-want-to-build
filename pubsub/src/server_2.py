@@ -1,6 +1,13 @@
+import msgpack
 from kafka import KafkaConsumer
 
-consumer = KafkaConsumer("foobar", bootstrap_servers="192.168.1.106:9092")
+from helpers.env import DOCKER_KAFKA_HOST
+
+consumer = KafkaConsumer(
+    "foobar",
+    bootstrap_servers=DOCKER_KAFKA_HOST,
+    value_deserializer=msgpack.unpackb
+)
 
 for msg in consumer:
     print(msg)

@@ -1,6 +1,12 @@
+import msgpack
 from kafka import KafkaProducer
 
-producer = KafkaProducer(bootstrap_servers="192.168.1.106")
+from helpers.env import DOCKER_KAFKA_HOST
 
-for _ in range(100):
-    producer.send("foobar", b"some_message_bytes")
+producer = KafkaProducer(
+    bootstrap_servers=DOCKER_KAFKA_HOST,
+    value_serializer=msgpack.dumps
+)
+
+for value in range(100):
+    producer.send("foobar", value)
