@@ -1,1 +1,1 @@
-import "./application/connection";
+import "./application";

@@ -1,5 +1,5 @@
 import { create, get, remove } from "../user";
-import factory from "../../../../domain/models/factories";
+import factory from "../../../../shared/domain/models/factories";
 
 let user;
 

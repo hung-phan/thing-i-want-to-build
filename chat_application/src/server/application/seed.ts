@@ -1,6 +1,6 @@
 import { range } from "lodash";
 import { quit } from "../infrastructure/redis";
-import factory from "../../domain/models/factories";
+import factory from "../../shared/domain/models/factories";
 import { create } from "../domain/repositories/user";
 
 (async () => {
