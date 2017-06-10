@@ -5,18 +5,24 @@ import { create, get } from "../domain/repositories/user";
 import { createChannel, publish, subscribe } from "../infrastructure/pubsub";
 import { AUTHENTICATION_EVENT, CHAT_EVENT, MessageType } from "../../shared/domain/models/websocket";
 
-export const connections = {};
+const connections = {};
 
 wss.on("connection", (client: WebSocket) => {
-  client.on("message", async (data: MessageType) => {
+  client.on("message", async (value: string) => {
+    const data: MessageType = JSON.parse(value);
+
     switch (data.type) {
       case AUTHENTICATION_EVENT:
-        await create(new User({ ...data.payload, clusterID: process.env.clusterID }));
+        await create(new User({ ...data.payload, clusterID: process.env.CLUSTER_ID }));
         connections[data.payload.id] = client;
         break;
 
       case CHAT_EVENT:
-        publish(createChannel((await get(data.payload.to)).clusterID), data.payload);
+        client.send(JSON.stringify(data));
+        publish(
+          createChannel((await get(data.payload.to)).clusterID),
+          JSON.stringify(data)
+        );
         break;
 
       default:
@@ -34,13 +40,13 @@ wss.on("connection", (client: WebSocket) => {
   });
 });
 
-subscribe(createChannel(process.env.CLUSTER_ID), (data: MessageType) => {
-  console.info(data);
+subscribe(createChannel(process.env.CLUSTER_ID), (value: string) => {
+  const data: MessageType = JSON.parse(value);
 
   switch (data.type) {
     case CHAT_EVENT:
       const client = connections[data.payload.to];
-      (<WebSocket>client).send(data.payload);
+      (<WebSocket>client).send(JSON.stringify(data));
       break;
 
     default:

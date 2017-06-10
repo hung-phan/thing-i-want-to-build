@@ -1,11 +1,11 @@
 import { range } from "lodash";
-import { quit } from "../infrastructure/redis";
-import factory from "../../shared/domain/models/factories";
+import { shutdown } from "../infrastructure";
 import { create } from "../domain/repositories/user";
+import factory from "../../shared/domain/models/factories";
 
 (async () => {
   await Promise.all(
     range(100).map(async () => create(await factory.build("User")))
   );
-  quit();
+  shutdown();
 })();

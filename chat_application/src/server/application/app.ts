@@ -1,9 +1,11 @@
 import app from "../infrastructure/app";
 
-app.get("/health", function (req, res) {
+app.get("/health", (req, res) => {
   res.send("OK");
 });
 
-app.listen(parseInt(process.env.PORT, 10), () => {
-  console.log("Listening on %s", process.env.PORT);
+app.get("/", (req, res) => {
+  res.render(process.env.CLUSTER_ID, {
+    cluster: process.env.CLUSTER_ID
+  });
 });
