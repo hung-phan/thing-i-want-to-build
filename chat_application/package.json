@@ -41,7 +41,7 @@
   "license": "MIT",
   "main": "index.js",
   "scripts": {
-    "build": "yarn run clean && tsc",
+    "build": "npm run clean && tsc",
     "clean": "rimraf dist",
     "start": "node ./dist/src/server/index.js",
     "dev": "ts-node ./src/server/index.ts",
