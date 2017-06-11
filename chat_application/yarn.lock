@@ -27,12 +27,6 @@
   version "0.0.29"
   resolved "https://registry.yarnpkg.com/@types/mime/-/mime-0.0.29.tgz#fbcfd330573b912ef59eeee14602bface630754b"
 
-"@types/msgpack-lite@^0.1.4":
-  version "0.1.4"
-  resolved "https://registry.yarnpkg.com/@types/msgpack-lite/-/msgpack-lite-0.1.4.tgz#0ffa12bb008f9b8765f7d6772c109baf38925de5"
-  dependencies:
-    "@types/node" "*"
-
 "@types/node@*":
   version "7.0.22"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-7.0.22.tgz#4593f4d828bdd612929478ea40c67b4f403ca255"
