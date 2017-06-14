@@ -11,6 +11,7 @@
     "awesome-typescript-loader": "^3.1.3",
     "death": "^1.1.0",
     "express": "^4.15.3",
+    "factory-girl": "^4.2.2",
     "lodash": "^4.17.4",
     "pug": "^2.0.0-rc.2",
     "redis": "^2.7.1",
@@ -22,7 +23,6 @@
     "webpack": "^2.6.1"
   },
   "devDependencies": {
-    "factory-girl": "^4.2.2",
     "jest": "^20.0.4"
   },
   "jest": {
@@ -42,9 +42,9 @@
   "scripts": {
     "build": "npm run clean && tsc",
     "clean": "rimraf dist",
-    "start": "node ./dist/src/server/index.js",
     "dev": "ts-node ./src/server/index.ts",
-    "test": "jest --coverage",
-    "seed": "ts-node ./src/server/application/seed.ts"
+    "seed": "ts-node ./src/server/application/seed.ts",
+    "start": "node ./dist/src/server/index.js",
+    "test": "jest --coverage"
   }
 }
