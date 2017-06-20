@@ -1,9 +1,10 @@
 import * as redis from "redis";
 import * as EventEmitter from "events";
+import { createRedisConnection } from "./redis";
 
 export const eventEmitter = new EventEmitter();
-export const pub = redis.createClient();
-export const sub = redis.createClient();
+export const pub = createRedisConnection();
+export const sub = createRedisConnection();
 export const shutdown = () => {
   pub.quit();
   sub.quit();
