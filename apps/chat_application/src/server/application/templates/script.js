@@ -26,7 +26,7 @@
   window.appendMessage = (payload) => {
     chatPanelContentElement
       .insertAdjacentHTML(
-        "afterbegin",
+        "beforeend",
         `<div><b>${payload.from}: </b>${payload.content}</div>`
       );
   };
@@ -40,6 +40,7 @@
         content: chatPanelMessageElement.value
       }
     }));
+    chatPanelMessageElement.value = "";
   };
 
   ws.onmessage = event => {

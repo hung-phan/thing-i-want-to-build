@@ -43,7 +43,7 @@ wss.on("connection", (client: WebSocket) => {
   client.on("close", async () => {
     for (const key of Object.keys(connections)) {
       if (connections[key] === client) {
-        await remove(connections[key]);
+        await remove(key);
         delete connections[key];
         break;
       }
