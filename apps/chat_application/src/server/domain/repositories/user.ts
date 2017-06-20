@@ -14,10 +14,10 @@ export const get = (id: string): Promise<User | null> =>
   new Promise((resolve, reject) => {
     conn.get(
       `user:${id}`,
-      (err, result) =>
-        err
+      (err: Error, result: string) =>
+        err || !result
           ? reject(err)
-          : resolve(result ? new User(JSON.parse(result)) : result)
+          : resolve(new User(JSON.parse(result)))
     );
   });
 

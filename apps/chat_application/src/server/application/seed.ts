@@ -5,7 +5,7 @@ import factory from "../../shared/domain/models/factories";
 
 (async () => {
   await Promise.all(
-    range(100).map(async () => create(await factory.build("User")))
+    range(100, 1).map(async () => create(await factory.build("User")))
   );
   shutdown();
 })();

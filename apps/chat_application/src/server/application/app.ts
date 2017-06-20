@@ -5,7 +5,5 @@ app.get("/health", (req, res) => {
 });
 
 app.get("/", (req, res) => {
-  res.render(process.env.CLUSTER_ID, {
-    cluster: process.env.CLUSTER_ID
-  });
+  res.render("index", { cluster: process.env.CLUSTER_ID });
 });
