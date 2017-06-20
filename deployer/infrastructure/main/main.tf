@@ -1,5 +1,5 @@
 module "kubernetes_infrastructure" {
-  source = "../kubernetes"
+  source = "..\/kubernetess"
   cluster_name = "kubernetes-cluster"
   key_pair_name = "hung-phan"
   num_azs = 1
