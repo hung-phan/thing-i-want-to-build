@@ -1,4 +1,3 @@
-import * as redis from "redis";
 import * as EventEmitter from "events";
 import { createRedisConnection } from "./redis";
 
