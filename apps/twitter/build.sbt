@@ -7,17 +7,17 @@ scalaVersion in ThisBuild := "2.11.8"
 val macwire = "com.softwaremill.macwire" %% "macros" % "2.2.5" % "provided"
 val scalaTest = "org.scalatest" %% "scalatest" % "3.0.1" % Test
 
-lazy val `hello-lagom` = (project in file("."))
-  .aggregate(`hello-lagom-api`, `hello-lagom-impl`, `hello-lagom-stream-api`, `hello-lagom-stream-impl`)
+lazy val `twitter` = (project in file("."))
+  .aggregate(`twitter-api`, `twitter-impl`, `twitter-stream-api`, `twitter-stream-impl`)
 
-lazy val `hello-lagom-api` = (project in file("hello-lagom-api"))
+lazy val `twitter-api` = (project in file("twitter-api"))
   .settings(
     libraryDependencies ++= Seq(
       lagomScaladslApi
     )
   )
 
-lazy val `hello-lagom-impl` = (project in file("hello-lagom-impl"))
+lazy val `twitter-impl` = (project in file("twitter-impl"))
   .enablePlugins(LagomScala)
   .settings(
     libraryDependencies ++= Seq(
@@ -29,16 +29,16 @@ lazy val `hello-lagom-impl` = (project in file("hello-lagom-impl"))
     )
   )
   .settings(lagomForkedTestSettings: _*)
-  .dependsOn(`hello-lagom-api`)
+  .dependsOn(`twitter-api`)
 
-lazy val `hello-lagom-stream-api` = (project in file("hello-lagom-stream-api"))
+lazy val `twitter-stream-api` = (project in file("twitter-stream-api"))
   .settings(
     libraryDependencies ++= Seq(
       lagomScaladslApi
     )
   )
 
-lazy val `hello-lagom-stream-impl` = (project in file("hello-lagom-stream-impl"))
+lazy val `twitter-stream-impl` = (project in file("twitter-stream-impl"))
   .enablePlugins(LagomScala)
   .settings(
     libraryDependencies ++= Seq(
@@ -47,4 +47,4 @@ lazy val `hello-lagom-stream-impl` = (project in file("hello-lagom-stream-impl")
       scalaTest
     )
   )
-  .dependsOn(`hello-lagom-stream-api`, `hello-lagom-api`)
+  .dependsOn(`twitter-stream-api`, `twitter-api`)
