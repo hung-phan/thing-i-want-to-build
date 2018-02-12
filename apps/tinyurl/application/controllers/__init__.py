@@ -1,1 +1,0 @@
-from application.controllers.application import ApplicationController

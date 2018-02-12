@@ -1,1 +1,0 @@
-from application.middlewares.error import error_middleware
