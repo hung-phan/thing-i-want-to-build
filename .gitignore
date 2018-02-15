@@ -3,4 +3,4 @@
 .python-version
 .ipynb_checkpoints
 *.pyc
-apps/deep_learning/
+deep_learning/
