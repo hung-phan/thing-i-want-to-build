@@ -1,2 +1,2 @@
-model_checkpoint_path: "stack-autoencoder"
-all_model_checkpoint_paths: "stack-autoencoder"
+model_checkpoint_path: "openai-policy-model"
+all_model_checkpoint_paths: "openai-policy-model"
