@@ -1,2 +1,2 @@
-model_checkpoint_path: "openai-policy-model"
-all_model_checkpoint_paths: "openai-policy-model"
+model_checkpoint_path: "GAN"
+all_model_checkpoint_paths: "GAN"
