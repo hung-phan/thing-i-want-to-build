@@ -224,4 +224,4 @@ if __name__ == '__main__':
     setup()
     machine = StyleTransfer('content/judy.jpg', 'styles/sushi.jpg', 333, 250)
     machine.build()
-    machine.train(1000)
+    machine.train(500)
