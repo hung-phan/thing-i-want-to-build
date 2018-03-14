@@ -13,3 +13,5 @@ tensorflow==1.6.0
 jupyter-tensorboard==0.1.5
 gym==0.10.3
 Pillow==5.0.0
+requests-html==0.8.1
+gensim==3.4.0
