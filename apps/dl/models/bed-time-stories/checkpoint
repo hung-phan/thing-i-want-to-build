@@ -1,3 +1,3 @@
-model_checkpoint_path: "char-rnn-199"
-all_model_checkpoint_paths: "char-rnn-99"
-all_model_checkpoint_paths: "char-rnn-199"
+model_checkpoint_path: "char-rnn-399"
+all_model_checkpoint_paths: "char-rnn-299"
+all_model_checkpoint_paths: "char-rnn-399"
