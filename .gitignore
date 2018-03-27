@@ -3,8 +3,3 @@
 .python-version
 .ipynb_checkpoints
 *.pyc
-deep_learning/
-/apps/dl/style_transfer/imagenet-vgg-verydeep-19.mat
-/apps/dl/style_transfer/checkpoints/
-/apps/dl/style_transfer/graphs/
-/apps/dl/style_transfer/outputs/
