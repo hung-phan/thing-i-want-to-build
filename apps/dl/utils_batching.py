@@ -13,6 +13,7 @@
 import numpy as np
 import math
 
+
 def rnn_minibatch_sequencer(data, batch_size, sequence_size, nb_epochs):
     """
     Divides the data into batches of sequences so that all the sequences in one batch
