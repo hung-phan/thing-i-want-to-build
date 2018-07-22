@@ -222,6 +222,6 @@ class StyleTransfer(object):
 
 if __name__ == '__main__':
     setup()
-    machine = StyleTransfer('content/judy.jpg', 'styles/sushi.jpg', 333, 250)
+    machine = StyleTransfer('content/hung3.jpg', 'styles/wave2.jpg', 600, 600)
     machine.build()
     machine.train(500)
