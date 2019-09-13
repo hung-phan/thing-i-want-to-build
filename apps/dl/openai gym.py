@@ -27,6 +27,7 @@ def train_nn_without_policy_gradient():
     epi = 50
     step_limit = 500
 
+
     env = gym.make('CartPole-v0')
 
     with tf.Session() as sess:
