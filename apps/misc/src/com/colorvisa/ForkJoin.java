@@ -7,5 +7,9 @@ public class ForkJoin {
     ForkJoinPool pool = new ForkJoinPool(Runtime.getRuntime().availableProcessors());
 
     pool.invoke(new SimpleRecursiveAction(100000));
+
+    var value = pool.invoke(new SimpleRecursiveTask(100_000));
+
+    System.out.println("The value of recursive task: " + value);
   }
 }

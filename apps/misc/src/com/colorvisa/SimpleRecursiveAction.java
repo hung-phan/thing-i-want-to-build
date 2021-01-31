@@ -20,7 +20,8 @@ public class SimpleRecursiveAction extends RecursiveAction {
       simpleRecursiveAction1.fork();
       simpleRecursiveAction2.fork();
     } else {
-      System.out.println("No need for parallel execution, sequential algorithm is OK. " + simulatedWork);
+      System.out.println(
+          "No need for parallel execution, sequential algorithm is OK. " + simulatedWork);
     }
   }
 }
