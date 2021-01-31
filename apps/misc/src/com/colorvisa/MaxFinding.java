@@ -17,7 +17,7 @@ class MaxFinding extends RecursiveTask<Integer> {
   }
 
   public int sequential(int low, int high) {
-    return IntStream.rangeClosed(low, high).map((index) -> nums[index]).max().getAsInt();
+    return IntStream.rangeClosed(low, high).map(index -> nums[index]).max().getAsInt();
   }
 
   public int parallel(int low, int high) {
